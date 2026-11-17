@@ -1,0 +1,2 @@
+﻿# Diseño
+RegisterPage conserva los estados existentes y agrega step:1|2. El submit en paso 1 avanza tras validación HTML; en paso 2 valida ubicación y realiza la llamada actual. Las secciones se renderizan condicionalmente dentro de la misma tarjeta. LocationPicker se inicializa con la ubicación conservada en el estado padre. Indicador de pasos no permite saltar validaciones. Un efecto controla foco/scroll solo al cambiar paso. AuthLayout mantiene su clase de registro con ancho de tarjeta limitado a 600px; login no cambia.
