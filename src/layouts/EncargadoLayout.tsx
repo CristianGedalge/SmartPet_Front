@@ -9,7 +9,7 @@ import {
 
 const ENCARGADO_NAV_ITEMS: SidebarNavItem[] = [
   { label: 'Dashboard', to: '/dashboard', icon: LayoutDashboard },
-  { label: 'Animales resguardados', to: '/pets', icon: PawPrint },
+  { label: 'Resguardados', to: '/pets', icon: PawPrint },
   { label: 'Adopciones', to: '/adoptions', icon: Heart },
   { label: 'Mi Perfil', to: '/profile', icon: User },
 ];

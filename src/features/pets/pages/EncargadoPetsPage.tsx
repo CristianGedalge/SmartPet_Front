@@ -19,7 +19,7 @@ export default function EncargadoPetsPage() {
   const active=user?.establecimiento?.estado===true;
   function saved(){setDialog(null);setSuccess('Los cambios se guardaron correctamente.');list.refresh();}
   return <div className="directory-page rescue-page">
-    <div className="dashboard-intro"><div><p className="eyebrow">{user?.establecimiento?.nombre ?? 'MI ESTABLECIMIENTO'}</p><h1>Animales resguardados</h1><p>Registra su historia y ayúdales a encontrar un hogar cuando estén listos.</p></div><div className="rescue-actions"><Button variant="outline" onClick={list.refresh} disabled={list.loading}><RefreshCw size={16}/>Actualizar</Button><Button onClick={()=>setDialog({kind:'create'})} disabled={!active}><Plus size={17}/>Registrar animal</Button></div></div>
+    <div className="dashboard-intro"><div><p className="eyebrow">{user?.establecimiento?.nombre ?? 'MI ESTABLECIMIENTO'}</p><h1>Resguardados</h1><p>Registra su historia y ayúdales a encontrar un hogar cuando estén listos.</p></div><div className="rescue-actions"><Button variant="outline" onClick={list.refresh} disabled={list.loading}><RefreshCw size={16}/>Actualizar</Button><Button onClick={()=>setDialog({kind:'create'})} disabled={!active}><Plus size={17}/>Registrar animal</Button></div></div>
     {!active && <p role="alert" className="api-feedback error">Necesitas un establecimiento activo para gestionar animales. Consulta tu <Link to="/profile">perfil</Link>.</p>}
     {success && <p role="status" className="api-feedback success">{success}</p>}
     {list.loading ? <p role="status" className="api-loading">Cargando animales...</p> : list.error ? <div role="alert" className="api-error">{list.error}<Button onClick={list.refresh}>Reintentar</Button></div> : <>
