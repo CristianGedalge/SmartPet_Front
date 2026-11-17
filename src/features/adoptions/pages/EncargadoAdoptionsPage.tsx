@@ -22,7 +22,13 @@ export default function EncargadoAdoptionsPage() {
         {publication.estado!=='ADOPTADA' && <Button variant="outline" onClick={()=>setEditing(publication)}>Editar publicación</Button>}
         {publication.estado==='PUBLICADA' && <><Button variant="outline" onClick={()=>setChanging({publication,action:'retirar'})}>Retirar</Button><Button onClick={()=>setChanging({publication,action:'adoptar'})}>Marcar adoptado</Button></>}
         {publication.estado==='RETIRADA' && <Button onClick={()=>setChanging({publication,action:'publicar'})}>Volver a publicar</Button>}
-        {publication.fechaAdopcion && <p className="api-muted">Adopción registrada el {new Date(publication.fechaAdopcion).toLocaleDateString('es')}</p>}
+        {publication.registroAdopcion ? <section aria-label="Datos privados de la adopción">
+          <h3>Entrega registrada</h3>
+          <p><strong>Adoptante:</strong> {publication.registroAdopcion.nombreAdoptante}</p>
+          <p><strong>Teléfono:</strong> {publication.registroAdopcion.telefonoAdoptante}</p>
+          <p><strong>Fecha:</strong> {new Date(publication.registroAdopcion.fechaAdopcion+'T12:00:00').toLocaleDateString('es')}</p>
+          {publication.registroAdopcion.observaciones && <p><strong>Observaciones:</strong> {publication.registroAdopcion.observaciones}</p>}
+        </section> : publication.fechaAdopcion && <p className="api-muted">Adopción registrada el {new Date(publication.fechaAdopcion).toLocaleDateString('es')}. Sin datos del adoptante registrados.</p>}
       </AdoptionCard>)}</div><ListPagination page={list.page} hasNext={list.hasNext} loading={list.loading} onPage={list.setPage}/>
     </>}
     {editing && <PublicationForm animalId={editing.animalResguardadoId} publication={editing} onClose={()=>setEditing(null)} onSaved={saved}/>}
