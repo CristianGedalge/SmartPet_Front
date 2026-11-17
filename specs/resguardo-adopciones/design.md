@@ -7,3 +7,5 @@ Reutilizar usePaginatedList, Modal, Button, apiClient, estilos verde/menta exist
 Contratos en smartpet_api/specs/resguardo-adopciones/design.md. React.lazy para nuevas paginas, guard ENCARGADO y acceso publico al catalogo. Mantener rutas ADMIN y mascotas personales moviles. Sin dependencias nuevas.
 
 El pie de autenticacion enlaza al catalogo publico. La prueba de navegador usa perfil temporal de Edge y transporte simulado, sin datos reales.
+
+Selector de fotografías: zona verde/menta para elegir o arrastrar imágenes, contador del límite de cinco (incluye las fotos guardadas), formatos y tamaño visibles, errores junto al selector y miniaturas con nombre, tamaño y opción de quitar. Acceso por teclado mediante botón nativo; selección y arrastre comparten validación. Revocar vistas previas al cambiar archivos o desmontar. No cambiar el contrato de subida.
