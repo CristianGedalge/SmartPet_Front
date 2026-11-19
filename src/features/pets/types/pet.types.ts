@@ -14,3 +14,14 @@ export interface AnimalInput {
   nombre:string; especieId:number; razaNombre?:string|null; sexo?:string|null;
   color?:string|null; pesoKg?:number|null; edadAproximadaMeses?:number|null;
 }
+export interface PetOwnerSummary {
+  id:string; nombre:string; apellido:string; email:string; telefono:string|null;
+}
+export interface AdminPetRecord extends AnimalRecord {
+  estado:boolean; usuarioId:string; usuario:PetOwnerSummary|null; createdAt?:string;
+}
+export interface AdminUpdatePetInput {
+  nombre?:string; especieId?:number; razaNombre?:string|null;
+  sexo?:'MACHO'|'HEMBRA'|'DESCONOCIDO'|null; color?:string|null;
+  pesoKg?:number|null; edadAproximadaMeses?:number|null; estado?:boolean;
+}

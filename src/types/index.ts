@@ -27,6 +27,7 @@ export interface AuthUser {
   rol: RolNombre;
   estado: boolean;
   establecimiento: Establecimiento | null;
+  suscripcion?: SuscripcionCiudadano | null;
 }
 
 export interface PaginationParams {
@@ -35,6 +36,37 @@ export interface PaginationParams {
 }
 
 export interface Role { id: number; nombre: RolNombre; }
+
+export interface Plan {
+  id: string;
+  nombre: string;
+  descripcion: string | null;
+  precioReferencial: number;
+  busquedasFotoMes: number | null;
+  mensajesAgenteMes: number | null;
+  activo: boolean;
+}
+
+export interface SuscripcionCiudadano {
+  plan: string;
+  planId: string;
+  estado: 'ACTIVA' | 'VENCIDA' | 'CANCELADA';
+  inicio: string;
+  fin: string | null;
+  busquedasFotoMes: number | null;
+  busquedasFotoUsadas: number;
+  mensajesAgenteMes: number | null;
+  mensajesAgenteUsados: number;
+}
+
+export interface PlanInput {
+  nombre: string;
+  descripcion?: string | null;
+  precioReferencial: number;
+  busquedasFotoMes: number | null;
+  mensajesAgenteMes: number | null;
+  activo?: boolean;
+}
 
 export interface UpdateUserInput {
   nombre?: string;
