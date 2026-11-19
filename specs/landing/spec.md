@@ -1,0 +1,5 @@
+# Public landing and footer
+
+Public homepage at / introducing SmartPet with existing green branding, user-supplied SVG logo and existing local dog photo. Explain citizen mobile features (pets, lost alerts, sightings, photo search, chat) and establishment web (resguardo and adoption publications). Primary CTA public adoption catalog; establishment CTAs existing /register and /login. No invented statistics, testimonials, store badges, download URLs or paid plans. No new API calls/dependencies/backend/mobile changes. Shared public header/footer on landing and adoption catalog. Keep private portals/authentication behavior unchanged; unknown paths redirect homepage.
+
+Acceptance: responsive desktop/mobile, keyboard-operable menu with Escape and clear focus states, functional links and section anchors, existing catalog loading/error/detail still works, correct role-aware portal link, no horizontal overflow, accessible meaningful image text/headings/skip link. Keep previous changes and leave uncommitted; local implementation only, no publication.

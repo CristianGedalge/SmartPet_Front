@@ -1,0 +1,5 @@
+# Design
+
+Feature landing lazy LandingPage with editorial hero (large heading, dog photo, emerald accent), adoption invitation linking real catalog, alternating citizen and institution sections, FAQ with native details. PublicLayout wraps landing and catalog with SiteHeader and SiteFooter; page owns main landmark id main-content. Header mobile inline menu (aria-expanded, Escape, focus return), logo links /, anchors link homepage sections and close menu. Landing scrolls initial hash after lazy mount; scroll margins account sticky nav. Footer brand, community/establishment links, real FAQ and administrator access; no dead legal/social links. Existing local rescue-dog.jpg credit retained. Tailwind layout, small scoped CSS only when needed. Shared footer limited to public marketing/catalog pages, no large marketing footer in dashboards.
+
+Validate npm run lint/build plus Edge CDP browser checks with fake catalog responses for populated/empty/error/detail where applicable. Desktop/mobile screenshots, menu/anchors/CTA, footer links, role-aware portal link and image loading. No installation or external network needed for imagery.
