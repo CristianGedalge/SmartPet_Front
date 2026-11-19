@@ -358,7 +358,7 @@
 .rescue-section-title { font-size:20px; font-weight:700; margin:20px 0 12px; }
 .rescue-copy { font-size:15px; line-height:1.8; white-space:pre-wrap; overflow-wrap:anywhere; margin:18px 0; }
 .rescue-page .dashboard-intro { gap:20px; flex-wrap:wrap; }
-.adoption-catalog { min-height:100dvh; background:#f7fbf9; }
+.adoption-catalog { background:#f7fbf9; }
 .catalog-header { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:20px; padding:24px max(24px,calc((100vw - 1200px)/2)); background:#fff; border-bottom:1px solid #e7eee9; }
 .adoption-catalog main { width:min(1200px,calc(100% - 40px)); margin:auto; padding-bottom:48px; }
 .catalog-intro { max-width:760px; padding:64px 0 28px; }
