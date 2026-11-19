@@ -5,6 +5,7 @@ import { AdminLayout } from '../layouts/AdminLayout';
 import { AuthLayout } from '../layouts/AuthLayout';
 import { EncargadoLayout } from '../layouts/EncargadoLayout';
 import { PublicOnlyGuard } from './PublicOnlyGuard';
+import { PublicLayout } from '../layouts/PublicLayout';
 import { RoleGuard } from './RoleGuard';
 
 const LoginPage = lazy(() => import('../features/auth/pages/LoginPage'));
@@ -37,13 +38,25 @@ const EncargadoAdoptionsPage = lazy(() => import('../features/adoptions/pages/En
 const PublicAdoptionsPage = lazy(() => import('../features/adoptions/pages/PublicAdoptionsPage'));
 
 const ProfilePage = lazy(() => import('../features/profile/pages/ProfilePage'));
+const HeatmapPage = lazy(() => import('../features/analitica/pages/HeatmapPage'));
+const LandingPage = lazy(() => import('../features/landing/pages/LandingPage'));
+const EstablishmentsLandingPage = lazy(() => import('../features/landing/pages/EstablishmentsLandingPage'));
+const LegalPage = lazy(() => import('../features/legal/pages/LegalPage'));
+const AboutPage = lazy(() => import('../features/about/pages/AboutPage'));
 
 export function AppRouter() {
   return (
     <BrowserRouter>
       <Suspense fallback={<PageLoader />}>
         <Routes>
-          <Route path="/adopciones" element={<PublicAdoptionsPage />} />
+          <Route element={<PublicLayout />}>
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/establecimientos" element={<EstablishmentsLandingPage />} />
+            <Route path="/sobre-nosotros" element={<AboutPage />} />
+            <Route path="/adopciones" element={<PublicAdoptionsPage />} />
+            <Route path="/terminos" element={<LegalPage document="terminos" />} />
+            <Route path="/privacidad" element={<LegalPage document="privacidad" />} />
+          </Route>
           {/* Rutas Públicas de Autenticación */}
           <Route element={<PublicOnlyGuard />}>
             <Route element={<AuthLayout />}>
@@ -59,6 +72,7 @@ export function AppRouter() {
               <Route path="/dashboard" element={<EncargadoDashboardPage />} />
               <Route path="/pets" element={<EncargadoPetsPage />} />
               <Route path="/adoptions" element={<EncargadoAdoptionsPage />} />
+              <Route path="/heatmap" element={<HeatmapPage />} />
               <Route path="/profile" element={<ProfilePage />} />
             </Route>
           </Route>
@@ -77,12 +91,13 @@ export function AppRouter() {
               <Route path="users" element={<AdminUsersPage />} />
               <Route path="establishments" element={<AdminEstablishmentsPage />} />
               <Route path="pets" element={<AdminPetsPage />} />
+              <Route path="heatmap" element={<HeatmapPage />} />
               <Route path="profile" element={<ProfilePage />} />
             </Route>
           </Route>
 
           {/* Redirección por defecto */}
-          <Route path="*" element={<Navigate to="/login" replace />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </Suspense>
     </BrowserRouter>
