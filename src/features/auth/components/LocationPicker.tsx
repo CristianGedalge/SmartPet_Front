@@ -1,11 +1,9 @@
 ﻿import { useEffect, useId, useRef, useState, type KeyboardEvent } from 'react';
 import { Crosshair, LoaderCircle, Minus, Plus } from 'lucide-react';
-import { Map as LibreMap, Marker, Popup, setWorkerUrl } from 'maplibre-gl';
-import workerUrl from 'maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url';
+import { Map as LibreMap, Marker, Popup } from 'maplibre-gl';
+import { MAP_STYLE_URL as STYLE_URL } from '../../../config/map.config';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import { isValidLocation, type LocationCoordinates } from '../../../utils/map.utils';
-
-setWorkerUrl(workerUrl);
 
 interface LocationPickerProps {
   value: LocationCoordinates | null;
@@ -15,8 +13,6 @@ interface LocationPickerProps {
 }
 
 const INITIAL_CENTER = { latitud: -17.7833, longitud: -63.1821 };
-const STYLE_URL = (import.meta.env.VITE_MAP_STYLE_URL as string | undefined)?.trim()
-  || 'https://tiles.openfreemap.org/styles/liberty';
 
 function coordinates(latitude: number, longitude: number): LocationCoordinates {
   return {
