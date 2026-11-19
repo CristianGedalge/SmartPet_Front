@@ -1,4 +1,5 @@
-﻿import { AdminDirectory, type DirectoryConfig } from '../../../components/shared/AdminDirectory';
+﻿import { CitizenSubscription } from '../../subscriptions/components/CitizenSubscription';
+import { AdminDirectory, type DirectoryConfig } from '../../../components/shared/AdminDirectory';
 import type { AuthUser } from '../../../types';
 import { usersService } from '../services/users.service';
 
@@ -22,7 +23,7 @@ const config: DirectoryConfig<AuthUser> = {
   list: usersService.list, get: usersService.get,
   save: (id, values) => usersService.update(id, { nombre: values.nombre.trim(), apellido: values.apellido.trim(), telefono: values.telefono.trim(), fotoUrl: values.fotoUrl.trim() }),
   setStatus: (user) => user.estado ? usersService.deactivate(user.id) : usersService.update(user.id, { estado: true }),
-  details: (user) => <div className="api-detail-info"><p><strong>Correo:</strong> {user.email}</p><p><strong>Rol:</strong> {user.rol}</p>{user.establecimiento && <p><strong>Establecimiento:</strong> {user.establecimiento.nombre}</p>}</div>,
+  details: (user) => <div><div className="api-detail-info"><p><strong>Correo:</strong> {user.email}</p><p><strong>Rol:</strong> {user.rol}</p>{user.establecimiento && <p><strong>Establecimiento:</strong> {user.establecimiento.nombre}</p>}</div><CitizenSubscription userId={user.id} role={user.rol} /></div>,
   filter: { label: 'Rol en esta página', value: (user) => user.rol, load: async (signal) => (await usersService.roles(signal)).map((role) => ({ value: role.nombre, label: role.nombre === 'ADMIN' ? 'Administrador' : role.nombre === 'ENCARGADO' ? 'Encargado' : 'Ciudadano' })) },
 };
 export default function AdminUsersPage() { return <AdminDirectory config={config} />; }
