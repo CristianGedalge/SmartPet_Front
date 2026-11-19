@@ -18,7 +18,7 @@ export function PublicLayout() {
         <Outlet />
       </div>
       <SiteFooter />
-      {pathname !== "/establecimientos" && <BusinessChatbot key={pathname} />}
+      {pathname !== "/establecimientos" && <BusinessChatbot />}
     </div>
   );
 }

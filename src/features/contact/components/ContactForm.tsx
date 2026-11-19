@@ -13,7 +13,7 @@ const initialForm: ContactInput = {
 };
 
 const fieldClass =
-  'mt-2 min-h-12 w-full rounded-xl border border-emerald-950/15 bg-white px-4 py-3 text-base text-[#143d2e] outline-none transition focus:border-emerald-600 focus:ring-2 focus:ring-emerald-600/15';
+  'mt-2 min-h-12 w-full rounded-xl border border-emerald-950/15 bg-white px-4 py-3 text-base text-[#143d2e] outline-none transition placeholder:text-[#8aa396] focus:border-emerald-600 focus:ring-2 focus:ring-emerald-600/15';
 
 const apiErrorMessage = (error: unknown) => {
   if (!axios.isAxiosError(error)) return 'No se pudo enviar el mensaje.';
@@ -82,6 +82,7 @@ export function ContactForm() {
             maxLength={100}
             required
             autoComplete="name"
+            placeholder="Tu nombre"
             className={fieldClass}
           />
         </label>
@@ -95,6 +96,7 @@ export function ContactForm() {
             maxLength={150}
             required
             autoComplete="email"
+            placeholder="tu@correo.com"
             className={fieldClass}
           />
         </label>
@@ -107,6 +109,7 @@ export function ContactForm() {
             minLength={3}
             maxLength={120}
             required
+            placeholder="¿Sobre qué nos escribes?"
             className={fieldClass}
           />
         </label>
@@ -120,6 +123,7 @@ export function ContactForm() {
             maxLength={2000}
             required
             rows={5}
+            placeholder="Cuéntanos tu consulta"
             className={`${fieldClass} resize-y`}
           />
         </label>

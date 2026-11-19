@@ -37,7 +37,7 @@ export function AdoptionConfirmation({publication,action,onSaved,onClose}:{publi
   }
   return <Modal title={title} onClose={onClose} busy={busy}>
     <p className="api-confirm-copy"><strong>{publication.mascota.nombre}</strong></p>
-    <p className="api-muted">{action==='adoptar' ? 'Registra a la persona que recibe al animal, tenga o no cuenta en SmartPet. La ficha quedará como historial de solo lectura y se retirará del catálogo. Esta acción no puede deshacerse.' : action==='retirar' ? 'Dejará de aparecer en el catálogo público. Podrás publicarlo nuevamente cuando esté disponible.' : 'La ficha y el contacto institucional volverán a estar disponibles en el catálogo público.'}</p>
+    <p className="api-muted">{action==='adoptar' ? 'Registra a la persona que recibe al animal, tenga o no cuenta en SmartPet. La ficha quedará guardada en el historial y se retirará del catálogo. Esta acción no puede deshacerse.' : action==='retirar' ? 'Dejará de aparecer en el catálogo público. Podrás publicarlo nuevamente cuando esté disponible.' : 'La ficha y el contacto institucional volverán a estar disponibles en el catálogo público.'}</p>
     <form onSubmit={event=>void save(event)}>
       {action==='adoptar' && <fieldset disabled={busy} className="api-form-grid">
         <label className="api-field api-field-wide">Nombre completo del adoptante<Input name="nombreAdoptante" autoComplete="off" required maxLength={150} value={nombre} onChange={event=>setNombre(event.target.value)}/></label>

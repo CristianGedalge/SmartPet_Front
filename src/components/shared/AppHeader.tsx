@@ -13,7 +13,13 @@ export function AppHeader() {
   const links = [
     { label: 'Dashboard', to: prefix + '/dashboard' },
     { label: 'Mascotas', to: prefix + '/pets' },
-    ...(admin ? [{ label: 'Usuarios', to: '/admin/users' }, { label: 'Establecimientos', to: '/admin/establishments' }] : []),
+    ...(admin ? [
+      { label: 'Usuarios', to: '/admin/users' },
+      { label: 'Roles', to: '/admin/roles' },
+      { label: 'Especies', to: '/admin/species' },
+      { label: 'Planes', to: '/admin/plans' },
+      { label: 'Establecimientos', to: '/admin/establishments' },
+    ] : []),
     { label: 'Mi perfil', to: prefix + '/profile' },
   ];
   const results = links.filter((link) => link.label.toLocaleLowerCase('es').includes(query.trim().toLocaleLowerCase('es')));

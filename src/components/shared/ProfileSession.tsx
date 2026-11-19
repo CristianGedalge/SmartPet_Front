@@ -18,7 +18,7 @@ export function ProfileSession({ children }: { children: ReactNode }) {
       updateUser(profile);
       setResult({ key, error: null });
     }).catch((error: unknown) => {
-      if (!controller.signal.aborted && useAuthStore.getState().token === token) setResult({ key, error: getApiErrorMessage(error, 'No pudimos validar tu sesión. Comprueba que la API esté disponible.') });
+      if (!controller.signal.aborted && useAuthStore.getState().token === token) setResult({ key, error: getApiErrorMessage(error, 'No pudimos validar tu sesión. Comprueba tu conexión e inténtalo nuevamente.') });
     });
     return () => controller.abort();
   }, [token, updateUser, key]);

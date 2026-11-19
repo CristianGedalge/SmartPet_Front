@@ -33,6 +33,15 @@ const AdminEstablishmentsPage = lazy(
 const AdminPetsPage = lazy(
   () => import('../features/pets/pages/AdminPetsPage'),
 );
+const AdminPlansPage = lazy(
+  () => import('../features/subscriptions/pages/AdminPlansPage'),
+);
+const AdminRolesPage = lazy(
+  () => import('../features/catalogs/pages/AdminRolesPage'),
+);
+const AdminSpeciesPage = lazy(
+  () => import('../features/catalogs/pages/AdminSpeciesPage'),
+);
 
 const EncargadoAdoptionsPage = lazy(() => import('../features/adoptions/pages/EncargadoAdoptionsPage'));
 const PublicAdoptionsPage = lazy(() => import('../features/adoptions/pages/PublicAdoptionsPage'));
@@ -89,6 +98,9 @@ export function AppRouter() {
               />
               <Route path="dashboard" element={<AdminDashboardPage />} />
               <Route path="users" element={<AdminUsersPage />} />
+              <Route path="roles" element={<AdminRolesPage />} />
+              <Route path="species" element={<AdminSpeciesPage />} />
+              <Route path="plans" element={<AdminPlansPage />} />
               <Route path="establishments" element={<AdminEstablishmentsPage />} />
               <Route path="pets" element={<AdminPetsPage />} />
               <Route path="heatmap" element={<HeatmapPage />} />
