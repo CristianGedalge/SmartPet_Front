@@ -1,4 +1,4 @@
-import { Building2, LayoutDashboard, PawPrint, User, Users } from 'lucide-react';
+import { Building2, LayoutDashboard, Map, PawPrint, User, Users } from 'lucide-react';
 import { Outlet } from 'react-router-dom';
 import { AppHeader } from '../components/shared/AppHeader';
 import { ProfileSession } from '../components/shared/ProfileSession';
@@ -12,6 +12,7 @@ const ADMIN_NAV_ITEMS: SidebarNavItem[] = [
   { label: 'Usuarios', to: '/admin/users', icon: Users },
   { label: 'Establecimientos', to: '/admin/establishments', icon: Building2 },
   { label: 'Mascotas', to: '/admin/pets', icon: PawPrint },
+  { label: 'Mapa de calor', to: '/admin/heatmap', icon: Map },
   { label: 'Mi Perfil', to: '/admin/profile', icon: User },
 ];
 

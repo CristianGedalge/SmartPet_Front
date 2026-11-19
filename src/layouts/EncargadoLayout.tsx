@@ -1,4 +1,4 @@
-import { Heart, LayoutDashboard, PawPrint, User } from 'lucide-react';
+import { Heart, LayoutDashboard, Map, PawPrint, User } from 'lucide-react';
 import { Outlet } from 'react-router-dom';
 import { AppHeader } from '../components/shared/AppHeader';
 import { ProfileSession } from '../components/shared/ProfileSession';
@@ -11,6 +11,7 @@ const ENCARGADO_NAV_ITEMS: SidebarNavItem[] = [
   { label: 'Dashboard', to: '/dashboard', icon: LayoutDashboard },
   { label: 'Resguardados', to: '/pets', icon: PawPrint },
   { label: 'Adopciones', to: '/adoptions', icon: Heart },
+  { label: 'Mapa de calor', to: '/heatmap', icon: Map },
   { label: 'Mi Perfil', to: '/profile', icon: User },
 ];
 
