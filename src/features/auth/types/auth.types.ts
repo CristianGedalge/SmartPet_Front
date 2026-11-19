@@ -17,6 +17,9 @@ export interface RegisterEstablecimientoInput {
 }
 
 export interface RegisterEncargadoPayload {
+  aceptaTerminos: boolean;
+  aceptaPrivacidad: boolean;
+  versionLegal: string;
   nombre: string;
   apellido: string;
   email: string;
