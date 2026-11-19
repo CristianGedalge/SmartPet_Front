@@ -1,0 +1,12 @@
+services:
+  smartpet_front:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        VITE_API_URL: ${VITE_API_URL:-http://localhost:3000/api/v1}
+        VITE_MAP_STYLE_URL: ${VITE_MAP_STYLE_URL:-https://tiles.openfreemap.org/styles/liberty}
+    container_name: smartpet_front
+    restart: unless-stopped
+    ports:
+      - "${FRONTEND_PORT:-80}:80"
